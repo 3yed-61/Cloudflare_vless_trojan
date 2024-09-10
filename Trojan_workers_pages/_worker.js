@@ -498,7 +498,7 @@ export { worker_default as default };
 function gettrojanConfig(Pswd, hostName) {
   const wtrojanws = `trojan://${Pswd}\u0040${CDNIP}:8880?security=none&type=ws&host=${hostName}&path=%2F%3Fed%3D2560#${hostName}`;
   const ptrojanwstls = `trojan://${Pswd}\u0040${CDNIP}:8443?security=tls&type=ws&host=${hostName}&sni=${hostName}&fp=random&path=%2F%3Fed%3D2560#${hostName}`;
-  const note = `甬哥博客地址：https://ygkkk.blogspot.com\n甬哥YouTube频道：https://www.youtube.com/@ygkkk\n甬哥TG电报群组：https://t.me/ygkkktg\n甬哥TG电报频道：https://t.me/ygkkktgpd\n\nProxyIP全局运行中：${proxyIP}`;
+  const note = `Yongge Blog Address：https://ygkkk.blogspot.com\nYongge YouTube Channel：https://www.youtube.com/@ygkkk\nYongge TG Telegram Group：https://t.me/ygkkktg\nYongge TG Telegram Channel：https://t.me/ygkkktgpd\n3λΞĐ：https://github.com/3yed-61\n\nProxyIP is running globally：${proxyIP}`;
   const ty = `https://${hostName}/${Pswd}/ty`
   const cl = `https://${hostName}/${Pswd}/cl`
   const sb = `https://${hostName}/${Pswd}/sb`
@@ -530,7 +530,7 @@ function copyToClipboard(text) {
   input.select();
   document.execCommand('Copy');
   document.body.removeChild(input);
-  alert('已复制到剪贴板');
+  alert('Copied to clipboard');
 }
 </script>
 `;
@@ -543,7 +543,7 @@ ${displayHtml}
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h1>Cloudflare-workers/pages-trojan代理脚本 V24.7.25</h1>
+            <h1>Cloudflare-workers/pages-trojan Proxy Script V24.7.25</h1>
 			<hr>
             <p>${noteshow}</p>
             <hr>
@@ -551,83 +551,83 @@ ${displayHtml}
 			<hr>
             <br>
             <br>
-            <h3>1：CF-workers-trojan+ws节点</h3>
+            <h3>1: CF-workers-trojan+ws Node</h3>
 			<table class="table">
 				<thead>
 					<tr>
-						<th>节点特色：</th>
-						<th>单节点链接如下：</th>
+						<th>Node Features:</th>
+						<th>Single Node Link:</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td class="limited-width">关闭了TLS加密，无视域名阻断</td>
+						<td class="limited-width">TLS encryption disabled, domain blocking ignored</td>
 						<td class="limited-width">${wtrojanws}</td>
-						<td><button class="btn btn-primary" onclick="copyToClipboard('${wtrojanws}')">点击复制链接</button></td>
+						<td><button class="btn btn-primary" onclick="copyToClipboard('${wtrojanws}')">Copy Link</button></td>
 					</tr>
 				</tbody>
 			</table>
-            <h5>客户端参数如下：</h5>
+            <h5>Client Parameters:</h5>
             <ul>
-                <li>客户端地址(address)：自定义的域名 或者 优选域名 或者 优选IP 或者 反代IP</li>
-                <li>端口(port)：7个http端口可任意选择(80、8080、8880、2052、2082、2086、2095)，或反代IP对应端口</li>
-                <li>密码(password)：${Pswd}</li>
-                <li>传输协议(network)：ws 或者 websocket</li>
-                <li>伪装域名(host)：${hostName}</li>
-                <li>路径(path)：/?ed=2560</li>
-                <li>传输安全(TLS)：关闭</li>
+                <li>Client Address (address): Custom domain, preferred domain, preferred IP, or reverse proxy IP</li>
+                <li>Port: Choose any of the 7 HTTP ports (80, 8080, 8880, 2052, 2082, 2086, 2095) or the corresponding reverse proxy port</li>
+                <li>Password: ${Pswd}</li>
+                <li>Network: ws or websocket</li>
+                <li>Host: ${hostName}</li>
+                <li>Path: /?ed=2560</li>
+                <li>TLS: Disabled</li>
             </ul>
             <hr>
 			<hr>
 			<hr>
             <br>
             <br>
-            <h3>2：CF-workers-trojan+ws+tls</h3>
+            <h3>2: CF-workers-trojan+ws+tls</h3>
 			<table class="table">
 				<thead>
 					<tr>
-						<th>节点特色：</th>
-						<th>单节点链接如下：</th>
+						<th>Node Features:</th>
+						<th>Single Node Link:</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td class="limited-width">启用了TLS加密，<br>如果客户端支持分片(Fragment)功能，建议开启，防止域名阻断</td>
+						<td class="limited-width">TLS encryption enabled,<br>If the client supports fragmentation, enable it to prevent domain blocking</td>
 						<td class="limited-width">${ptrojanwstls}</td>	
-						<td><button class="btn btn-primary" onclick="copyToClipboard('${ptrojanwstls}')">点击复制链接</button></td>
+						<td><button class="btn btn-primary" onclick="copyToClipboard('${ptrojanwstls}')">Copy Link</button></td>
 					</tr>
 				</tbody>
 			</table>
-            <h5>客户端参数如下：</h5>
+            <h5>Client Parameters:</h5>
             <ul>
-                <li>客户端地址(address)：自定义的域名 或者 优选域名 或者 优选IP 或者 反代IP</li>
-                <li>端口(port)：6个https端口可任意选择(443、8443、2053、2083、2087、2096)，或反代IP对应端口</li>
-                <li>密码(password)：${Pswd}</li>
-                <li>传输协议(network)：ws 或者 websocket</li>
-                <li>伪装域名(host)：${hostName}</li>
-                <li>路径(path)：/?ed=2560</li>
-                <li>传输安全(TLS)：开启</li>
-                <li>跳过证书验证(allowlnsecure)：false</li>
+                <li>Client Address (address): Custom domain, preferred domain, preferred IP, or reverse proxy IP</li>
+                <li>Port: Choose any of the 6 HTTPS ports (443, 8443, 2053, 2083, 2087, 2096) or the corresponding reverse proxy port</li>
+                <li>Password: ${Pswd}</li>
+                <li>Network: ws or websocket</li>
+                <li>Host: ${hostName}</li>
+                <li>Path: /?ed=2560</li>
+                <li>TLS: Enabled</li>
+                <li>Allow Insecure: false</li>
 			</ul>
 			<hr>
 			<hr>
 			<hr>
 			<br>	
 			<br>
-			<h3>3：聚合通用、Clash-meta、Sing-box订阅链接如下：</h3>
+			<h3>3: Aggregated, Clash-meta, Sing-box Subscription Links:</h3>
 			<hr>
-			<p>注意：<br>1、默认每个订阅链接包含TLS+非TLS共13个端口节点 (Clash节点仅6个TLS节点)<br>2、当前workers域名作为订阅链接，需通过代理进行订阅更新<br>3、如使用的客户端不支持分片功能，则TLS节点不可用</p>	
-                        <hr>
+			<p>Note:<br>1. Each subscription link includes a total of 13 nodes (6 TLS for Clash)<br>2. The current workers domain as subscription link requires proxy for updates<br>3. TLS nodes will be unusable if the client doesn't support fragmentation</p>	
+            <hr>
 			<table class="table">
 					<thead>
 						<tr>
-							<th>聚合通用订阅链接：</th>
+							<th>Aggregated Subscription Link:</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
 							<td class="limited-width">${ty}</td>	
-							<td><button class="btn btn-primary" onclick="copyToClipboard('${ty}')">点击复制链接</button></td>
+							<td><button class="btn btn-primary" onclick="copyToClipboard('${ty}')">Copy Link</button></td>
 						</tr>
 					</tbody>
 				</table>	
@@ -635,13 +635,13 @@ ${displayHtml}
 				<table class="table">
 						<thead>
 							<tr>
-								<th>Clash-meta订阅链接：</th>
+								<th>Clash-meta Subscription Link:</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
 								<td class="limited-width">${cl}</td>	
-								<td><button class="btn btn-primary" onclick="copyToClipboard('${cl}')">点击复制链接</button></td>
+								<td><button class="btn btn-primary" onclick="copyToClipboard('${cl}')">Copy Link</button></td>
 							</tr>
 						</tbody>
 					</table>
@@ -649,13 +649,13 @@ ${displayHtml}
 					<table class="table">
 					<thead>
 						<tr>
-							<th>Sing-box订阅链接：</th>
+							<th>Sing-box Subscription Link:</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
 							<td class="limited-width">${sb}</td>	
-							<td><button class="btn btn-primary" onclick="copyToClipboard('${sb}')">点击复制链接</button></td>
+							<td><button class="btn btn-primary" onclick="copyToClipboard('${sb}')">Copy Link</button></td>
 						</tr>
 					</tbody>
 				</table>
@@ -675,93 +675,88 @@ ${displayHtml}
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h1>Cloudflare-workers/pages-trojan代理脚本 V24.7.25</h1>
-			<hr>
+            <h1>Cloudflare-workers/pages-trojan Proxy Script V24.7.25</h1>
+            <hr>
             <p>${noteshow}</p>
-            <hr>
-			<hr>
-			<hr>
-            <br>
-            <br>
-            <h3>1：CF-pages/workers/自定义域-trojan+ws+tls节点</h3>
-			<table class="table">
-				<thead>
-					<tr>
-						<th>节点特色：</th>
-						<th>单节点链接如下：</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td class="limited-width">启用了TLS加密，<br>如果客户端支持分片(Fragment)功能，可开启，防止域名阻断</td>
-						<td class="limited-width">${ptrojanwstls}</td>
-						<td><button class="btn btn-primary" onclick="copyToClipboard('${ptrojanwstls}')">点击复制链接</button></td>
-					</tr>
-				</tbody>
-			</table>
-            <h5>客户端参数如下：</h5>
+            <hr><hr><hr>
+            <br><br>
+
+            <h3>1: CF-pages/workers/Custom Domain - trojan+ws+tls Node</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Node Feature:</th>
+                        <th>Single Node Link:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="limited-width">TLS encryption enabled.<br>If the client supports fragment function, it can be enabled to prevent domain blocking</td>
+                        <td class="limited-width">${ptrojanwstls}</td>
+                        <td><button class="btn btn-primary" onclick="copyToClipboard('${ptrojanwstls}')">Click to copy link</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <h5>Client Parameters:</h5>
             <ul>
-                <li>客户端地址(address)：自定义的域名 或者 优选域名 或者 优选IP 或者 反代IP</li>
-                <li>端口(port)：6个https端口可任意选择(443、8443、2053、2083、2087、2096)，或反代IP对应端口</li>
-                <li>密码(password)：${Pswd}</li>
-                <li>传输协议(network)：ws 或者 websocket</li>
-                <li>伪装域名(host)：${hostName}</li>
-                <li>路径(path)：/?ed=2560</li>
-                <li>传输安全(TLS)：开启</li>
-                <li>跳过证书验证(allowlnsecure)：false</li>
-			</ul>
+                <li>Client Address (address): Custom domain or preferred domain or preferred IP or reverse proxy IP</li>
+                <li>Port (port): 6 HTTPS ports available (443, 8443, 2053, 2083, 2087, 2096), or reverse proxy IP port</li>
+                <li>Password (password): ${Pswd}</li>
+                <li>Network protocol (network): ws or websocket</li>
+                <li>Host domain (host): ${hostName}</li>
+                <li>Path (path): /?ed=2560</li>
+                <li>Transmission Security (TLS): Enabled</li>
+                <li>Skip certificate verification (allowInsecure): false</li>
+            </ul>
+            <hr><hr><hr>
+            <br><br>
+
+            <h3>2: Aggregate, Clash-meta, Sing-box Subscription Links:</h3>
             <hr>
-			<hr>
-			<hr>
-            <br>
-            <br>
-			<h3>2：聚合通用、Clash-meta、Sing-box订阅链接如下：</h3>
-			<hr>
-			<p>注意：以下订阅链接仅6个TLS端口节点</p>
-			<hr>
-			<table class="table">
-					<thead>
-						<tr>
-							<th>聚合通用订阅链接：</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td class="limited-width">${pty}</td>	
-							<td><button class="btn btn-primary" onclick="copyToClipboard('${pty}')">点击复制链接</button></td>
-						</tr>
-					</tbody>
-				</table>	
+            <p>Note: The following subscription links only have 6 TLS node ports</p>
+            <hr>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>General Subscription Link:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="limited-width">${pty}</td>	
+                        <td><button class="btn btn-primary" onclick="copyToClipboard('${pty}')">Click to copy link</button></td>
+                    </tr>
+                </tbody>
+            </table>	
 
-				<table class="table">
-						<thead>
-							<tr>
-								<th>Clash-meta订阅链接：</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td class="limited-width">${pcl}</td>	
-								<td><button class="btn btn-primary" onclick="copyToClipboard('${pcl}')">点击复制链接</button></td>
-							</tr>
-						</tbody>
-					</table>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Clash-meta Subscription Link:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="limited-width">${pcl}</td>	
+                        <td><button class="btn btn-primary" onclick="copyToClipboard('${pcl}')">Click to copy link</button></td>
+                    </tr>
+                </tbody>
+            </table>
 
-					<table class="table">
-					<thead>
-						<tr>
-							<th>Sing-box订阅链接：</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td class="limited-width">${psb}</td>	
-							<td><button class="btn btn-primary" onclick="copyToClipboard('${psb}')">点击复制链接</button></td>
-						</tr>
-					</tbody>
-				</table>
-				<br>
-				<br>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Sing-box Subscription Link:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="limited-width">${psb}</td>	
+                        <td><button class="btn btn-primary" onclick="copyToClipboard('${psb}')">Click to copy link</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <br><br>
         </div>
     </div>
 </div>
